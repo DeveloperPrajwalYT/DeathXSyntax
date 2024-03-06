@@ -4,7 +4,7 @@ local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = false, Sa
 
 OrionLib:MakeNotification({
 	Name = "Logged in!",
-	Content = "Welcome to Uppercut Hub"..Player.Name.." ",
+	Content = "Welcome to DeathXSyntax"..Player.Name.." ",
 	Image = "rbxassetid://11915607895",
 	Time = 5
 })
