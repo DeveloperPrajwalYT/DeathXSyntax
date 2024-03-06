@@ -25,7 +25,7 @@ function CorrectKeyNotification()
 })
 wait(3)
 if wait(3) then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/PeomPokkao/ScriptLastedButinUikeySystem/main/README.md"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DeveloperPrajwalYT/DeathXSyntax/main/deathxsyntax"))();
     end
 end
 
