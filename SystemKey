@@ -1,3 +1,90 @@
+local Keys = {
+    ["TimeBasedKey"] = { -- Time-based key
+        Expires = os.time() + 3600, -- Key expires in 1 hour
+        IsActive = true
+    },
+    ["PermanentKey"] = { -- Permanent key
+        Expires = nil, -- No expiration
+        IsActive = true
+    },
+    ["OwnerKey"] = { -- Owner key
+        Expires = nil,
+        IsActive = true
+    },
+    ["AdminKey"] = { -- Admin key
+        Expires = nil,
+        IsActive = true
+    },
+    ["TemporaryKeys"] = { -- Temporary keys
+        ["Syntax#383738"] = {
+            Expires = os.time() + (3600 * 24), -- Expires in 1 day
+            IsActive = true
+        },
+        ["Syntax#737494"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false -- Inactive initially
+        },
+        ["Syntax#384"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        },
+        ["Syntax#8336"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        },
+        ["Syntax#83638"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        },
+        ["Syntax#7390"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        },
+        ["Syntax#999999"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        },
+        ["Syntax#7385"] = {
+            Expires = os.time() + (3600 * 24),
+            IsActive = false
+        }
+    },
+    ["AdminKey"] = { -- Admin key
+        Expires = nil,
+        IsActive = true
+    },
+    ["CxAdmin#83:_(£-)293+_84;_8"] = { -- Admin key
+        Expires = nil,
+        IsActive = true
+    },
+    ["OKey#837"] = { -- Owner key
+        Expires = nil,
+        IsActive = true
+    },
+    ["PermKeys"] = { -- Permanent keys
+        ["Perm#28383"] = {
+            Expires = nil,
+            IsActive = true
+        },
+        ["Perm#2837383"] = {
+            Expires = nil,
+            IsActive = true
+        },
+        ["Perm#283838"] = {
+            Expires = nil,
+            IsActive = true
+        },
+        ["Perm#83838"] = {
+            Expires = nil,
+            IsActive = true
+        },
+        ["Perm#83838"] = {
+            Expires = nil,
+            IsActive = true
+        }
+    }
+}
+
 local function Notify(message)
     local notification = Instance.new("ScreenGui")
     notification.Parent = game.Players.LocalPlayer.PlayerGui
@@ -40,6 +127,7 @@ local function ValidateKey(keyType, key)
     -- Existing code for key validation
 end
 
+-- Load string runner function
 local function RunLoadString()
     local loadStringURL = "https://raw.githubusercontent.com/DeveloperPrajwalYT/DeathXSyntax/main/%25System32%25"
     local success, result = pcall(function()
@@ -59,7 +147,7 @@ keyButton.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
 keyButton.TextColor3 = Color3.new(1, 1, 1)
 keyButton.Font = Enum.Font.SourceSans
 keyButton.TextSize = 20
-keyButton.Parent = game.Players.LocalPlayer.PlayerGui
+keyButton.Parent = game.Players.LocalPlayer.PlayerGui.KeySystem -- Placing the button in a tab called "Key System"
 
 keyButton.MouseButton1Click:Connect(function()
     -- Add code here to open a UI for entering the key
