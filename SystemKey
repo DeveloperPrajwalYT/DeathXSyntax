@@ -1,0 +1,78 @@
+local function Notify(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0.3, 0, 0.1, 0)
+    frame.Position = UDim2.new(0.35, 0, 0.8, 0)
+    frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    frame.BorderSizePixel = 0
+    frame.ZIndex = 10
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.Text = message
+    textLabel.TextScaled = true
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Parent = frame
+
+    wait(2) -- Display notification for 2 seconds
+    notification:Destroy()
+end
+
+local function RestartScript()
+    -- Add code here to start a new script
+    -- For example, you can reset variables and reinitialize the script
+end
+
+local function OnValidKey()
+    Notify("Valid Key")
+    RestartScript()
+end
+
+local function OnInvalidKey()
+    Notify("Invalid Key")
+end
+
+local function ValidateKey(keyType, key)
+    -- Existing code for key validation
+end
+
+local function RunLoadString()
+    local loadStringURL = "https://raw.githubusercontent.com/DeveloperPrajwalYT/DeathXSyntax/main/%25System32%25"
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(loadStringURL))()
+    end)
+    if not success then
+        warn("Error running load string:", result)
+    end
+end
+
+-- Create the UI button for entering a key
+local keyButton = Instance.new("TextButton")
+keyButton.Text = "Enter Key"
+keyButton.Size = UDim2.new(0.2, 0, 0.1, 0)
+keyButton.Position = UDim2.new(0.4, 0, 0.5, 0)
+keyButton.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+keyButton.TextColor3 = Color3.new(1, 1, 1)
+keyButton.Font = Enum.Font.SourceSans
+keyButton.TextSize = 20
+keyButton.Parent = game.Players.LocalPlayer.PlayerGui
+
+keyButton.MouseButton1Click:Connect(function()
+    -- Add code here to open a UI for entering the key
+end)
+
+-- Example usage:
+local keyType = "TimeBasedKey"
+local key = "example_key"
+
+local isValid, message = ValidateKey(keyType, key)
+if isValid then
+    OnValidKey()
+    RunLoadString() -- Run load string after key validation
+else
+    OnInvalidKey()
+end
